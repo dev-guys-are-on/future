@@ -1,5 +1,4 @@
-FROM openjdk:11
-CMD ["./gradlew", "clean", "bootJar"]
-COPY build/libs/*.jar app.jar
+FROM openjdk:11-jre-slim
+ADD build/libs/*.jar final.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/future-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "final.jar"]
